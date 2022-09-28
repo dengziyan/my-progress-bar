@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>进度条倒计时</title>
+	<style>
+.box .progress{ height: 20px position: absolute; top: 300px; left: 60px; right: 60px; border: #fee0b6 solid 1px; border-radius: 14px; padding: 2px 2px;}
+.box .progress .progress-in{ width: 0; height: 20px; background: url("cj_jd.png") repeat-x center; background-size: auto 100%; border-radius: 10px; transition: width .5s;}
+.box .progress-txt{ position:absolute; top: 60px; left: 0; right: 0; height: 20px; line-height: 20px; text-align: center; color:orange; font-size: 12px;}
+.box .num{font-weight: bold;}
+	</style>
+
+</head>
+<body>
+	<div class="box" id="page2">
+		<div class="progress"><div class="progress-in j-jdt"></div></div>
+		<div class="progress-txt">还有<span class="num">15</span>秒，冲啊~~</div>
+	</div>
+
+
+
+
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+	var shake={
+		times:0,
+		leng:15
+	}; // 摇动时长 30S
+	shakePhone();
+		// 摇手机抽奖
+	function shakePhone(){
+		var $page2=$("#page2");
+		
+		var shakeInterval=setInterval(function(){
+			if(shake.times>shake.leng){
+				clearInterval(shakeInterval);
+				$('.progress-txt').text('结束啦~')
+			}else{
+				var w = parseInt((shake.times/shake.leng)*100)
+				$page2.find(".j-jdt").css("width",w+"%");
+				$page2.find(".num").text(shake.leng-shake.times);
+				shake.times++;
+			}
+		},1000)
+	}
+	</script>
+</body>
+</html>
