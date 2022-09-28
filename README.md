@@ -2,7 +2,7 @@
 
 ##效果如下：
 
-![输入图片说明](https://gitee.com/deng_zi_yan/my-progress-bar/raw/main/progress.gif "在这里输入图片标题")
+![输入图片说明](https://github.com/dengziyan/my-progress-bar/blob/main/progress.gif?raw=true"在这里输入图片标题")
 
 主要利用属性transition: width .5s;当改变width的大小时，就会产生过渡动画效果。
 
